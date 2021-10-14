@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+<style>
+    .flex-container {
+      display: flex;  flex-direction:row;
+      background-color: rgb(167, 192, 58);
+  }
+
+.flex-container > div {  /*div children of the flex container*/
+  background-color: #f1f1f1; 
+  margin: 10px;  padding: 20px;  font-size: 30px;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) { 
+	 .flex-container{
+		 flex-direction:column;
+		 background-color: rgb(51, 40, 146);
+	  }
+	}
+</style>
+<title>push and pop operations</title>
+</head>
+
+
+
+<body>
+    <h2>builds a stack DHANA SRI KUCHI </h2>
+
+    <input type="text" id="txt">
+    <button onclick="makeNewDiv()">Push value</button>
+<br>
+		<div class="flex-container" id="target">
+		  <div class="stack">
+            row item 1
+          </div>   
+		  <div class="stack">row item 2</div>  
+		  <div class="stack">row item 3</div>  
+		</div>
+	
+	<!-- <p> Press the button to create an new element of type div and then add it to the container.
+		</p> -->
+		
+	
+	
+</body>
+<script>
+
+	function makeNewDiv(){
+		/* make the div and its text */
+		let element = document.createElement("p")
+		element.innerHTML = document.getElementById('txt').value;
+        document.getElementById('txt').className = 'stack';
+		// element.style.color = "orange"
+
+		/* add it to the container */
+		document.getElementById('target').appendChild(element)
+		
+	}
+  //Bonus
+  function zap(){
+        var stackItems = document.getElementsByClassName("stack")
+        let input = document.getElementById("inputElement").value
+        if(stackItems!= undefined && stackItems.length >0){
+            for(let i=0; i<stackItems.length; i++){
+                if(stackItems[i].innerHTML == input){
+                    var itemToBeRemoved = stackItems[i].innerHTML
+                    stackItems[i].remove()
+                    console.log("removed_element",itemToBeRemoved)
+                    i--
+                }
+            }
+        }
+    }
+</script>
+</html>	
